@@ -1,14 +1,23 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import httpx
 from typing import List
 from datetime import datetime
 
+
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://innovaitech-2026-salud.vercel.app"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # URL del servidor Baileys corriendo localmente
 BAILEYS_API_URL = "https://paraphysate-raiden-fractus.ngrok-free.dev"
-
 
 class WhatsAppRequest(BaseModel):
     patient_id: str
