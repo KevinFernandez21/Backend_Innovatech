@@ -7,7 +7,7 @@ from datetime import datetime
 app = FastAPI()
 
 # URL del servidor Baileys corriendo localmente
-BAILEYS_API_URL = "http://localhost:3000"
+BAILEYS_API_URL = "https://paraphysate-raiden-fractus.ngrok-free.dev"
 
 
 class WhatsAppRequest(BaseModel):
